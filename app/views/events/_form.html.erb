@@ -1,0 +1,97 @@
+<%= form_for @event do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+
+	<%= field_set_tag 'Location' do %>
+
+		<%= hidden_field_tag "event[location_ids][]", nil%>
+		<% @locations.each do |location| %>
+			<label class="checkbox">
+				<%= check_box_tag "event[location_ids][]", location.id, @event.location_ids.include?(location.id), id: dom_id(location) %>
+				<%= location.name %>
+			</label>
+		<% end %>
+
+		<%= link_to_add_fields "Add New Location", f, :locations %>
+
+	<% end %>
+
+
+
+	<%= f.label :emcees %>
+	<%= f.text_field :emcees %>
+	
+	<%= f.label :featured_guests %>
+	<%= f.text_field :featured_guests %>
+
+	<%= f.label :cost_pre_order %>
+	<%= f.text_field :cost_pre_order %>
+
+	<%= f.label :cost_door %>
+	<%= f.text_field :cost_door %>
+
+	<%= f.label :contact %>
+	<%= f.text_field :contact %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+
+
+	<%= field_set_tag 'Host Organization' do %>
+
+		<%= hidden_field_tag "event[organization_ids][]", nil%>
+		<% @organizations.each do |organization| %>
+			<label class="checkbox">
+				<%= check_box_tag "event[organization_ids][]", organization.id, @event.organization_ids.include?(organization.id), id: dom_id(organization) %>
+				<%= organization.name %>
+			</label>
+		<% end %>
+
+		<%= link_to_add_fields "Add New Organization", f, :organizations %>
+
+	<% end %>
+
+
+	<%= field_set_tag 'Cause' do %>
+
+		<%= hidden_field_tag "event[cause_ids][]", nil%>
+		<% @causes.each do |cause| %>
+			<label class="checkbox">
+				<%= check_box_tag "event[cause_ids][]", cause.id, @event.cause_ids.include?(cause.id), id: dom_id(cause) %>
+				<%= cause.name %>
+			</label>
+		<% end %>
+
+		<%= link_to_add_fields "Add New Cause", f, :causes %>
+
+	<% end %>
+
+
+	<%= field_set_tag 'Event Type' do %>
+
+		<%= hidden_field_tag "event[event_type_ids][]", nil%>
+		<% @event_types.each do |event_type| %>
+			<label class="checkbox">
+				<%= check_box_tag "event[event_type_ids][]", event_type.id, @event.event_type_ids.include?(event_type.id), id: dom_id(event_type) %>
+				<%= event_type.name %>
+			</label>
+		<% end %>
+
+		<%= link_to_add_fields "Add New Event Type", f, :event_types %>
+
+	<% end %>
+
+
+
+
+
+	<%= f.label :attire %>
+	<%= f.select(:attire, ["Casual", "Semi-Formal", "Formal"], :include_blank => true) %>
+
+	<%= f.submit %>
+<% end %>
+

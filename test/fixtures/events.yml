@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  start_time: 2013-01-08 00:28:28
+  end_time: 2013-01-08 00:28:28
+  emcees: MyString
+  featured_guests: MyString
+  door_cost: MyString
+  attire: MyString
+  description: MyText
+  contact: MyString
+
+two:
+  name: MyString
+  start_time: 2013-01-08 00:28:28
+  end_time: 2013-01-08 00:28:28
+  emcees: MyString
+  featured_guests: MyString
+  door_cost: MyString
+  attire: MyString
+  description: MyText
+  contact: MyString

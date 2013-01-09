@@ -1,0 +1,32 @@
+<pre>
+Id: <%= event.id %>
+Name: <%= event.name %>
+Start: <%= event.start_time.to_formatted_s(:long) %>
+End: <%= event.end_time.to_formatted_s(:long) %>
+Duration: <%= distance_of_time_in_words(event.start_time, event.end_time) %>
+Location: 
+<% for location in event.locations %>
+<%= location.inspect %>
+<% end %>
+Type of Event: 
+<% for event_type in event.event_types %>
+<%= event_type.inspect %>
+<% end %>
+Cause:
+<% for cause in event.causes %>
+<%= cause.inspect %>
+<% end %>
+Host Organization:
+<% for organization in event.organizations %>
+<%= organization.inspect %>
+<% end %>
+Emcees: <%= event.emcees %>
+Featured Guests: <%= event.featured_guests %>
+Advance Cost: $<%= event.cost_pre_order %>
+Cost at Door: $<%= event.cost_door %>
+Attire: <%= event.attire %>
+Contact: <%= event.contact %>
+Description: <%= event.description %>
+<%= link_to 'Edit', edit_event_path(event) %>  
+<%= link_to 'Delete', event, :confirm => "Are you sure?", :method => 'delete' %>
+</pre>
