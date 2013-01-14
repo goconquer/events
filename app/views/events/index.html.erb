@@ -1,4 +1,10 @@
-<%= link_to "Add Event", new_event_path %>
 
-<%= render @events %>
+<h1>Manage Events</h1>
+
+<%= link_to "Add Event", new_event_path, :class => "success button" %>
+
+<ul>
+	<%= render @events %>
+</ul>
+
 

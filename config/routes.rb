@@ -4,6 +4,9 @@ Events::Application.routes.draw do
 
   resources :events
 
+  match 'views/month' => 'views#month'
+  match 'views/filter' => 'views#filter', :as => 'filter'
+
 
 
 

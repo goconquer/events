@@ -62,5 +62,20 @@ module Events
     config.time_zone = 'Pacific Time (US & Canada)'
     config.active_record.default_timezone = 'Pacific Time (US & Canada)'
 
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+
+        unless html_tag =~ /^<label/
+            if instance.error_message.kind_of?(Array)
+                %(<div class="form-field error">#{html_tag}<small class="error">&nbsp;
+                #{instance.error_message.join(', ')}</small></div>).html_safe
+            else
+                %(<div class="form-field error">#{html_tag}<small class="error">&nbsp;
+                #{instance.error_message}</small></div>).html_safe
+            end
+        else
+            %{<div class="error">#{html_tag}</div>}.html_safe
+        end
+    end
+
   end
 end

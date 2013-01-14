@@ -1,32 +1,50 @@
-<pre>
-Id: <%= event.id %>
-Name: <%= event.name %>
-Start: <%= event.start_time.to_formatted_s(:long) %>
-End: <%= event.end_time.to_formatted_s(:long) %>
-Duration: <%= distance_of_time_in_words(event.start_time, event.end_time) %>
-Location: 
-<% for location in event.locations %>
-<%= location.inspect %>
-<% end %>
-Type of Event: 
-<% for event_type in event.event_types %>
-<%= event_type.inspect %>
-<% end %>
-Cause:
-<% for cause in event.causes %>
-<%= cause.inspect %>
-<% end %>
-Host Organization:
-<% for organization in event.organizations %>
-<%= organization.inspect %>
-<% end %>
-Emcees: <%= event.emcees %>
-Featured Guests: <%= event.featured_guests %>
-Advance Cost: $<%= event.cost_pre_order %>
-Cost at Door: $<%= event.cost_door %>
-Attire: <%= event.attire %>
-Contact: <%= event.contact %>
-Description: <%= event.description %>
-<%= link_to 'Edit', edit_event_path(event) %>  
-<%= link_to 'Delete', event, :confirm => "Are you sure?", :method => 'delete' %>
-</pre>
+<li>
+	<h3><%= event.name %></h3>
+	<%= link_to 'Edit', edit_event_path(event), :class => "tiny button" %>  
+	<%= link_to 'Delete', event, :confirm => "Are you sure?", :method => 'delete', :class => "tiny alert button" %>
+
+	<dl class="information">
+		<dt>Start:</dt>
+		<dd><%= event.start_time.to_formatted_s(:long) %></dd>
+		<dt>End:</dt>
+		<dd><%= event.end_time.to_formatted_s(:long) %></dd>
+		<dt>Duration:</dt>
+		<dd><%= distance_of_time_in_words(event.start_time, event.end_time) %></dd>
+		<dt>Location:</dt> 
+		<% for location in event.locations %>
+			<dd><%= location.name %></dd>
+		<% end %>
+		<dt>Type of Event:</dt> 
+		<% for event_type in event.event_types %>
+			<dd><%= event_type.name %></dd>
+		<% end %>
+		<dt>Cause:</dt> 
+		<% for cause in event.causes %>
+			<dd><%= cause.name %></dd>
+		<% end %>
+		<dt>Host Organization:</dt> 
+		<% for organization in event.organizations %>
+			<dd><%= organization.name %></dd>
+		<% end %>
+		<dt>Emcees:</dt>
+		<dd><%= event.emcees %></dd>
+		<dt>Featured Guests:</dt>
+		<dd><%= event.featured_guests %></dd>
+		<dt>Advance Cost:</dt>
+		<dd>$<%= event.cost_pre_order %></dd>
+		<dt>Cost at Door:</dt>
+		<dd>$<%= event.cost_door %></dd>
+		<dt>Attire:</dt>
+		<dd><%= event.attire %></dd>
+		<dt>Contact:</dt>
+		<dd><%= event.contact %></dd>
+		<dt>Description:</dt>
+		<dd><%= event.description %></dd>
+	</dl>
+
+	 
+
+	
+
+	
+</li>

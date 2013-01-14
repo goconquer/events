@@ -1,0 +1,14 @@
+<div class="calendar month">
+
+	<% (Date.today.beginning_of_month.strftime("%w").to_i).times do %>
+		<div>0</div>
+	<% end %>
+
+	<% (1..(Time.days_in_month(1,2013))).each do |day| %>
+		<div>
+			<span><%= day %></span>
+			
+		</div>
+	<% end %>
+
+</div>

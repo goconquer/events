@@ -1,0 +1,65 @@
+%form{:action => "", :method => "get", :id => "filter"}	
+	%div 
+		%h3 Search
+		Change to Checkboxes and form submits,
+		then can easily ajax by submits
+	%div
+		%h3 Options
+		%label.checkbox
+			= check_box_tag "include_past_events", (params[:include_past_events] if params[:include_past_events])
+			= "Include Past Events"
+	%div
+		%h3 Date
+	%div
+		%h3 Time
+	%div 
+		%h3 Location
+		%div
+			%h4 City
+			- @cities.each do |city|
+				%label.checkbox{:class => ("checked" if params[:city].include?(city.city) if params[:city])}
+					= check_box_tag "city[]", city.city, (params[:city].include?(city.city) if params[:city])
+					= city.city
+		%div
+			%h4 Venue
+			- @locations.each do |location|
+				%label.checkbox{:class => ("checked" if params[:location].include?(location.id.to_s) if params[:location])}
+					= check_box_tag "location[]", location.id, (params[:location].include?((location.id).to_s) if params[:location])
+					= location.name
+	%div
+		%h3 Host Group
+		- @organizations.each do |organization|
+			%label.checkbox{:class => ("checked" if params[:organization].include?(organization.id.to_s) if params[:organization])}
+				= check_box_tag "organization[]", organization.id, (params[:organization].include?((organization.id).to_s) if params[:organization])
+				= organization.name
+	%div 
+		%h3 Type of Event
+		- @event_types.each do |event_type|
+			%label.checkbox{:class => ("checked" if params[:event_type].include?(event_type.id.to_s) if params[:event_type])}
+				= check_box_tag "event_type[]", event_type.id, (params[:event_type].include?((event_type.id).to_s) if params[:event_type])
+				= event_type.name
+	%div
+		%h3 Cause
+		- @causes.each do |cause|
+			%label.checkbox{:class => ("checked" if params[:cause].include?(cause.id.to_s) if params[:cause])}
+				= check_box_tag "cause[]", cause.id, (params[:cause].include?((cause.id).to_s) if params[:cause])
+				= cause.name
+	%div 
+		%h3 Cost
+		%label{:for => "max_cost"}
+			Maximum Cost
+		%input{:type => "text", :name => "max_cost", :id => "max_cost", :value => (params[:max_cost] unless params[:max_cost].blank?) }
+	%div 
+		%h3 Attire
+		- attire_options = ["Casual", "Semi-Formal", "Formal"]
+		- attire_options.each do |attire|
+			%label.checkbox{:class => ("checked" if params[:attire].include?(attire) if params[:attire])}
+				= check_box_tag "attire[]", attire, (params[:attire].include?(attire) if params[:attire])
+				= attire
+
+	%div
+		%input{:type => "submit", :class => "secondary button"}
+		
+
+								
+								

@@ -1,0 +1,24 @@
+/*label > input[type="checkbox"]:checked { font-size: 5em; }*/
+
+input:focus, select:focus, textarea:focus, button:focus { outline: none; }
+
+select { width: auto; }
+
+label.checkbox { background: #d1ddd1; padding: 8px; display: block; }
+	label.checkbox.checked { background: #a8cca8; }
+
+	#filter label.checkbox { padding: 4px 4px 2px;}
+
+a.add_fields { display: inline-block; padding: 8px; background: khaki;}
+
+
+
+dl.information { margin: 0; padding: 0; } 
+dl.information dt { margin: 0; padding: 0; font-weight: bold; } 
+dl.information dd { margin: 0 0 1em 0; padding: 0; }
+
+.calendar.month { background: lightcyan; }
+	.calendar.month > div { width: 13%; background: lightcoral;
+		height: 80px; display: inline-block; margin-right: 0; }
+		.calendar.month > div:nth-child(7n) { margin-right: 0; }
+

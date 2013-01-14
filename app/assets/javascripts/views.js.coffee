@@ -14,9 +14,3 @@ jQuery ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
-  $("input[type='checkbox']").on 'change', (event) ->
-    if $(this).is(":checked")
-        $(this).parent().addClass("checked")
-    else
-        $(this).parent().removeClass("checked")
-    event.preventDefault()

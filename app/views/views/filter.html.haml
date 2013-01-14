@@ -1,0 +1,11 @@
+.row
+	.four.columns
+		= render :partial => "filter_fields"
+
+
+	.eight.columns.results
+		%h4
+			= params.inspect
+		%div
+			- @events.each do |event|
+				= render :partial => "event_listing", :locals => { :event => event }

@@ -8,26 +8,29 @@ class EventsController < ApplicationController
 		@event = Event.new
 		@organizations = Organization.all
 		@locations = Location.all
-		@organizations = Organization.all
 		@causes = Cause.all
 		@event_types = EventType.all
 	end
 
 	def create
 		@event = Event.new(params[:event])
+		@organizations = Organization.all
+		@locations = Location.all
+		@causes = Cause.all
+		@event_types = EventType.all
 		if @event.save
 			flash[:success] = "Event created!"
 			redirect_to events_path
 		else
-			render  'index'
+			render  'new'
 		end
 	end
 
 	def edit
+		@events = Event.all
 		@event = Event.find(params[:id])
-		@organization = Organization.all
-		@locations = Location.all
 		@organizations = Organization.all
+		@locations = Location.all
 		@causes = Cause.all
 		@event_types = EventType.all
 	end
