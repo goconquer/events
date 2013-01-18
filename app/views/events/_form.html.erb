@@ -5,12 +5,17 @@
 	<%= f.text_field :name %>
 
 	<div class="row">
-		<div class="six columns">
+		<div class="four columns">
+			<%= f.label :doors_time %>
+			<%= f.datetime_select :doors_time, :ampm => true, :order => [:month, :day, :year], 
+				:datetime_separator => '' %>
+		</div>
+		<div class="four columns">
 			<%= f.label :start_time %>
 			<%= f.datetime_select :start_time, :ampm => true, :order => [:month, :day, :year], 
 				:datetime_separator => '' %>
 		</div>
-		<div class="six columns">
+		<div class="four columns">
 			<%= f.label :end_time %>
 			<%= f.datetime_select :end_time, :ampm => true, :order => [:month, :day, :year], 
 				:datetime_separator => '' %>
@@ -54,6 +59,7 @@
 	
 	<%= f.label :description %>
 	<%= f.text_area :description %>
+
 
 
 
@@ -134,6 +140,10 @@
 	<% end %>
 
 
+
+
+	<%= f.label :min_age %>
+	<%= f.select(:min_age, ["All Ages", "18+", "21+"], :include_blank => true) %>
 
 
 

@@ -9,7 +9,17 @@ label.checkbox { background: #d1ddd1; padding: 8px; display: block; }
 
 	#filter label.checkbox { padding: 4px 4px 2px;}
 
+	#filter input[type=submit] { display: none; }
+
 a.add_fields { display: inline-block; padding: 8px; background: khaki;}
+
+.result_list { list-style: none; }
+
+	.result_list > li { background:#e6e7e8; margin-bottom:4px; padding: 4px; }
+	.result_list > li.date { background: none; }
+		.result_list > li h5 { margin: 0;}
+		.result_list .label { margin-right: 4px; }
+
 
 
 
@@ -21,4 +31,6 @@ dl.information dd { margin: 0 0 1em 0; padding: 0; }
 	.calendar.month > div { width: 13%; background: lightcoral;
 		height: 80px; display: inline-block; margin-right: 0; }
 		.calendar.month > div:nth-child(7n) { margin-right: 0; }
+
+
 

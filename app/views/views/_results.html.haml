@@ -1,0 +1,10 @@
+%h4
+	= params.inspect
+%div
+	- previousDate = nil
+	%ul.result_list
+		- @events.each do |event|
+			%li.date
+				= event.start_time.strftime("%B %-d, %Y") unless event.start_time.to_date == previousDate
+			= render :partial => "event_listing", :locals => { :event => event }
+			- previousDate = event.start_time.to_date

@@ -1,8 +1,6 @@
-%form{:action => "", :method => "get", :id => "filter"}	
+= form_tag filter_path, :method => "get", :id => "filter", :remote => true do
 	%div 
 		%h3 Search
-		Change to Checkboxes and form submits,
-		then can easily ajax by submits
 	%div
 		%h3 Options
 		%label.checkbox

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113224518) do
+ActiveRecord::Schema.define(:version => 20130118054151) do
 
   create_table "causes", :force => true do |t|
     t.string   "name"
@@ -54,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20130113224518) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.integer  "cost_pre_order",  :limit => 255, :default => 0
+    t.datetime "doors_time"
+    t.string   "min_age"
   end
 
   create_table "events_locations", :id => false, :force => true do |t|

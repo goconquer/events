@@ -4,10 +4,12 @@
 	<%= link_to 'Delete', event, :confirm => "Are you sure?", :method => 'delete', :class => "tiny alert button" %>
 
 	<dl class="information">
+		<dt>Door:</dt>
+		<dd><%= event.doors_time.inspect %></dd>
 		<dt>Start:</dt>
-		<dd><%= event.start_time.to_formatted_s(:long) %></dd>
+		<dd><%= event.start_time.inspect %></dd>
 		<dt>End:</dt>
-		<dd><%= event.end_time.to_formatted_s(:long) %></dd>
+		<dd><%= event.end_time.inspect %></dd>
 		<dt>Duration:</dt>
 		<dd><%= distance_of_time_in_words(event.start_time, event.end_time) %></dd>
 		<dt>Location:</dt> 
@@ -38,6 +40,8 @@
 		<dd><%= event.attire %></dd>
 		<dt>Contact:</dt>
 		<dd><%= event.contact %></dd>
+		<dt>Age Minimum:</dt>
+		<dd><%= event.min_age %></dd>
 		<dt>Description:</dt>
 		<dd><%= event.description %></dd>
 	</dl>

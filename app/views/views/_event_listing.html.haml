@@ -1,5 +1,18 @@
-%div
-	= event.start_time.to_formatted_s(:long)
-	= event.name
+%li
+	%h5
+		= event.name
+	= event.start_time.strftime("%l:%M %P")
 	= event.cost_pre_order
 	= event.cost_door
+	- for location in event.locations
+		= location.name
+	- for event_type in event.event_types
+		= event_type.name
+	- for cause in event.causes
+		= cause.name
+	%div
+		Hosted by 
+		- for organization in event.organizations
+			%span.label
+				= organization.name
+	= event.attire

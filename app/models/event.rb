@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   attr_accessible :attire, :contact, :description, :emcees, :end_time, 
   				:featured_guests, :name, :start_time, :cost_door, :cost_pre_order,
+          :doors_time, :min_age, 
           :organization_ids, :cause_ids, :event_type_ids, :location_ids, 
           :locations_attributes, :organizations_attributes, :causes_attributes, 
           :event_types_attributes
